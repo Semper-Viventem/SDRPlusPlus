@@ -52,6 +52,7 @@ option(OPT_BUILD_FALCON9_DECODER "Build the falcon9 live decoder (Dependencies: 
 option(OPT_BUILD_KG_SSTV_DECODER "Build the KG SSTV (KG-STV) decoder module (no dependencies required)" OFF)
 option(OPT_BUILD_M17_DECODER "Build the M17 decoder module (Dependencies: codec2)" OFF)
 option(OPT_BUILD_METEOR_DEMODULATOR "Build the meteor demodulator module (no dependencies required)" ON)
+option(OPT_BUILD_NRSC5_DECODER "Build the NRSC-5 (HD Radio) decoder module (Dependencies: libnrsc5)" OFF)
 option(OPT_BUILD_PAGER_DECODER "Build the pager decoder module (no dependencies required)" ON)
 option(OPT_BUILD_RADIO "Main audio modulation decoder (AM, FM, SSB, etc...)" ON)
 option(OPT_BUILD_RYFI_DECODER "RyFi data link decoder" OFF)
@@ -287,6 +288,10 @@ endif (OPT_BUILD_M17_DECODER)
 if (OPT_BUILD_METEOR_DEMODULATOR)
 add_subdirectory("decoder_modules/meteor_demodulator")
 endif (OPT_BUILD_METEOR_DEMODULATOR)
+
+if (OPT_BUILD_NRSC5_DECODER)
+add_subdirectory("decoder_modules/nrsc5_decoder")
+endif (OPT_BUILD_NRSC5_DECODER)
 
 if (OPT_BUILD_PAGER_DECODER)
 add_subdirectory("decoder_modules/pager_decoder")
